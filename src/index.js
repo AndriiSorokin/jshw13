@@ -8,7 +8,6 @@ refs.form.addEventListener('submit', searchFormSubmitHandler);
 
 function searchFormSubmitHandler(event) {
   event.preventDefault();
-
   const inputValue = event.currentTarget
   api.query = inputValue.query.value
   api.fetchImages().then(hits => {
@@ -22,18 +21,19 @@ function createImages() {
   })
 }
 
-const observeBox = refs.observeBox
 
 const onEntry = ((entries) => {
   entries.forEach(entry => {
+    console.log(entries);
     if (entry.isIntersecting) {
-
     }
   })
 })
-const options = {
-  root: document.querySelector('#scrollArea'),
-}
-const io = new IntersectionObserver(onEntry, options)
 
+const options = {
+  threshold: 1.0
+}
+const io = new IntersectionObserver(onEntry,options)
+const observeBox = refs.observeBox
 io.observe(observeBox)
+
