@@ -8,14 +8,10 @@ export default {
   perPage: 12,
   fetchImages() {
     const url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=${this.perPage}&key=${apiKey}`;
-    const options = {
-      headers: { Authorization: apiKey },
-    };
-    return fetch(url, options)
+    return fetch(url)
       .then(res => res.json())
       .then(({ images }) => {
         this.incrementPage();
-
         return images;
       });
   },

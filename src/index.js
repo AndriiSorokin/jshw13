@@ -1,10 +1,15 @@
 import css from "./style.css";
-import fetchImage from './js/api'
 import refs from './js/refs'
+import api from './js/api'
 
-fetchImage.addEventListener('input', event => ({
+refs.input.addEventListener('input', searchFormSubmitHandler);
 
-}))
+function searchFormSubmitHandler(event) {
+  event.preventDefault();
 
+  const form = event.currentTarget;
+  api.query = refs.input.value
 
-
+  api.fetchImages();
+  form.reset();
+}
