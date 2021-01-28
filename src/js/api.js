@@ -1,18 +1,19 @@
 import refs from "./refs";
-const apiKey = "18623550-dab6c274e7256e60b198db2a4";
-const baseUrl = "https://pixabay.com/api/";
+
 
 export default {
+  apiKey :"18623550-dab6c274e7256e60b198db2a4",
+  baseUrl :"https://pixabay.com/api/",
   searchQuery: '',
   page: 1,
   perPage: 12,
   fetchImages() {
-    const url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=${this.perPage}&key=${apiKey}`;
+    const url = `${this.baseUrl}?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=${this.perPage}&key=${this.apiKey}`;
     return fetch(url)
       .then(res => res.json())
-      .then(({ images }) => {
+      .then(({ hits }) => {
         this.incrementPage();
-        return images;
+        return hits;
       });
   },
   incrementPage() {

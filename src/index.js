@@ -1,15 +1,24 @@
 import css from "./style.css";
 import refs from './js/refs'
 import api from './js/api'
+import updateMarkup from './js/markup'
+console.log(api);
 
-refs.input.addEventListener('input', searchFormSubmitHandler);
+refs.form.addEventListener('submit', searchFormSubmitHandler);
 
 function searchFormSubmitHandler(event) {
   event.preventDefault();
 
-  const form = event.currentTarget;
-  api.query = refs.input.value
+  const inputValue = event.currentTarget
+  api.query = inputValue.query.value
+  
+  api.fetchImages().then(hits => {
+     createImages(hits)
+  });
+}
 
-  api.fetchImages();
-  form.reset();
+function createImages() {
+  api.fetchImages().then(images => {
+    updateMarkup(images)
+  })
 }
