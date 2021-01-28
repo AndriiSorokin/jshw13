@@ -26,3 +26,4 @@ export default {
     this.searchQuery = value;
   },
 };
+
