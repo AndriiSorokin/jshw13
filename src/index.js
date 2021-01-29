@@ -1,9 +1,8 @@
 import css from "./style.css";
 import refs from './js/refs'
 import api from './js/api'
-import updateMarkup from './js/markup'
 import observer from './js/observer'
-import {createImages} from './js/fetch'
+
 console.log(api);
 
 refs.form.addEventListener('submit', searchFormSubmitHandler);
@@ -13,6 +12,8 @@ function searchFormSubmitHandler(event) {
   const inputValue = event.currentTarget
   api.query = inputValue.query.value;
   observer()
+  refs.form.reset()
+
 }
 
 // const observeBox = refs.observeBox
