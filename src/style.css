@@ -1,5 +1,5 @@
 body {
-  background-image: url('https://images.unsplash.com/photo-1565357254165-dd9710e26f82?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-image: url('https://images.unsplash.com/photo-1539397810181-d80bea4ea42d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80');
   color: rgb(169, 162, 162);
 }
 
@@ -11,11 +11,11 @@ body {
 }
 
 #query {
-  padding: 10px 20px;
-  font-size: 24px;
+  padding: 7px 15px;
+  font-size: 20px;
   border-radius: 5px;
-  background-color: rgb(112, 92, 74);
-   color: rgb(169, 162, 162);
+  background-color: rgb(148, 141, 135);
+   color: rgb(70, 35, 35);
 }
 
 .gallery {
