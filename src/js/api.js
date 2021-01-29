@@ -3,7 +3,8 @@ export default {
   baseUrl :"https://pixabay.com/api/",
   searchQuery: '',
   page: 1,
-  perPage: 12,
+  perPage: 10,
+
   fetchImages() {
     const url = `${this.baseUrl}?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=${this.perPage}&key=${this.apiKey}`;
     return fetch(url)
@@ -13,6 +14,7 @@ export default {
         return hits;
       });
   },
+
   incrementPage() {
     this.page += 1;
   },
