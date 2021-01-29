@@ -14,36 +14,23 @@ function searchFormSubmitHandler(event) {
   event.preventDefault();
   const inputValue = event.currentTarget
   api.query = inputValue.query.value;
-  observer()
+    observer()
   refs.form.reset()
+  clearGallery()
 }
 
 refs.galleryList.addEventListener("click", (event) => {
   if (event.target.nodeName === "IMG") {
-    let modalSrc = event.target.dataset.src;
-
+    const imageSrc = event.target.dataset.src
     const instance = basicLightbox.create(`
     <div class="modal">
-      <img class'light-box-img' src="${modalSrc}" alt="">
+      <img class'light-box-img' src="${imageSrc}" alt="">
     </div>`);
-    instance.show();
+    instance.show()
   }
 });
 
-// const observeBox = refs.observeBox
 
-// const observe = function () {
-// const onEntry = ((entries) => {
-//   entries.forEach(entry => {
-//     console.log(entry);
-//     if (entry.isIntersecting) {
-//       createImages()
-//     }
-//   })
-// })
-// const options = {
-//   threshold: 1
-// }
-// const io = new IntersectionObserver(onEntry,options)
-// io.observe(observeBox)
-// }
+function clearGallery() {
+  refs.galleryList.innerHTML = ''
+}
